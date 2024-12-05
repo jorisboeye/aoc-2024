@@ -14,24 +14,13 @@ repos:
     -   id: debug-statements
     -   id: name-tests-test
     -   id: requirements-txt-fixer
--   repo: https://github.com/psf/black
-    rev: 24.10.0
+-   repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.8.2
     hooks:
-    -   id: black
--   repo: https://github.com/asottile/pyupgrade
-    rev: v3.19.0
-    hooks:
-    -   id: pyupgrade
-        args: [--py312-plus]
--   repo: https://github.com/pycqa/flake8
-    rev: 7.1.1
-    hooks:
-    -   id: flake8
-        additional_dependencies: [pep8-naming]
--   repo: https://github.com/pycqa/isort
-    rev: 5.13.2
-    hooks:
-      - id: isort
+    -   id: ruff
+        args:
+            - --fix
+    -   id: ruff-format
 -   repo: https://github.com/pre-commit/mirrors-mypy
     rev: v1.13.0
     hooks:

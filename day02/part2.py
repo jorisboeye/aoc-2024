@@ -19,7 +19,7 @@ def validate_line(levels: list[int]) -> bool:
     return all(4 > d > 0 for d in diff) or all(-4 < d < 0 for d in diff)
 
 
-def solve(puzzle_input: str | Path) -> int:
+def solve(puzzle_input: str) -> int:
     safe = 0
     for line in puzzle_input.splitlines():
         numbers = list(map(int, line.split()))

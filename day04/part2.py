@@ -1,5 +1,5 @@
+from collections.abc import Generator
 from pathlib import Path
-from typing import Generator
 
 import pytest
 
@@ -33,7 +33,7 @@ def mas_generator(puzzle_input: str) -> Generator[bool, None, None]:
                 yield left_diagonal in ("MS", "SM") and right_diagonal in ("MS", "SM")
 
 
-def solve(puzzle_input: str | Path) -> int:
+def solve(puzzle_input: str) -> int:
     return sum(mas_generator(puzzle_input=puzzle_input))
 
 

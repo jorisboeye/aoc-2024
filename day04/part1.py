@@ -1,5 +1,6 @@
+from collections.abc import Generator
+from collections.abc import Sequence
 from pathlib import Path
-from typing import Generator, Sequence
 
 import pytest
 
@@ -55,7 +56,7 @@ def get_diagonals(lines: Sequence[str]) -> Generator[str, None, None]:
         yield "".join(diagonal)
 
 
-def solve(puzzle_input: str | Path) -> int:
+def solve(puzzle_input: str) -> int:
     horizontal = puzzle_input.splitlines()
     vertical = get_vertical(puzzle_input=puzzle_input)
     right_diagonal = list(get_diagonals(horizontal))
@@ -87,7 +88,7 @@ def test_vertical(test_input: str, expected: Sequence[str]) -> None:
     assert get_vertical(test_input) == expected
 
 
-def test_get_reversed():
+def test_get_reversed() -> None:
     lines = ["XDDD", "DMDD", "DDAD", "DDDS"]
     expected = ["DDDX", "DDMD", "DADD", "SDDD"]
     assert get_reversed(lines) == expected

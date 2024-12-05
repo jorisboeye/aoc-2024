@@ -10,7 +10,7 @@ xmul(2,4)%&mul[3,7]!@^do_not_mul(5,5)+mul(32,64]then(mul(11,8)mul(8,5))
 """
 
 
-def solve(puzzle_input: str | Path) -> int:
+def solve(puzzle_input: str) -> int:
     pattern = re.compile(r"mul\((\d{1,3}),(\d{1,3})\)")
     puzzle_input = "".join(puzzle_input.splitlines())
     return sum(int(a) * int(b) for a, b in pattern.findall(puzzle_input))

@@ -8,7 +8,7 @@ TEST_INPUT = """\
 """
 
 
-def solve(puzzle_input: str | Path) -> int:
+def solve(puzzle_input: str) -> int:
     print(puzzle_input)
     return 0
 

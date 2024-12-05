@@ -14,13 +14,13 @@ TEST_INPUT = """\
 """
 
 
-def solve(puzzle_input: str | Path) -> int:
+def solve(puzzle_input: str) -> int:
     left, right = [], []
     for line in puzzle_input.splitlines():
-        l, r = map(int, line.split())
-        left.append(l)
-        right.append(r)
-    return sum(abs(l - r) for l, r in zip(sorted(left), sorted(right)))
+        left_value, right_value = map(int, line.split())
+        left.append(left_value)
+        right.append(right_value)
+    return sum(abs(l_v - r_v) for l_v, r_v in zip(sorted(left), sorted(right)))
 
 
 @pytest.mark.parametrize(

@@ -1,4 +1,5 @@
 import re
+from collections.abc import Generator
 from pathlib import Path
 
 import pytest
@@ -10,7 +11,7 @@ xmul(2,4)&mul[3,7]!^don't()_mul(5,5)+mul(32,64](mul(11,8)undo()?mul(8,5))
 """
 
 
-def generate_multiplication(input_string) -> int:
+def generate_multiplication(input_string: str) -> Generator[int]:
     pattern = re.compile(r"mul\((\d{1,3}),(\d{1,3})\)")
     enabled = True
     while input_string:
@@ -23,7 +24,7 @@ def generate_multiplication(input_string) -> int:
             enabled = True
 
 
-def solve(puzzle_input: str | Path) -> int:
+def solve(puzzle_input: str) -> int:
     puzzle_input = "".join(puzzle_input.splitlines())
     return sum(generate_multiplication(puzzle_input))
 
@@ -42,4 +43,5 @@ if __name__ == "__main__":
     if test_answer == TEST_RESULT:
         with open(FILE.parent / "input.txt") as file:
             answer = solve(puzzle_input=file.read())
+        print(answer)
         print(answer)
