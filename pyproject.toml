@@ -4,7 +4,9 @@ version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
-dependencies = []
+dependencies = [
+    "pytest>=8.3.4",
+]
 
 [project.scripts]
 aoc = "aoc_cli.main:main"
